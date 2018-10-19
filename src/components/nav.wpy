@@ -1,9 +1,29 @@
 <template lang="wxml">
     <view class="sidebar">
-        <view class="wrap">
-            <view class="profile">
-                <view href="/">
-                    <img src="/public/images/pic.png" alt="Hpysirius的博客">
+        <view class="sidebar__wrap">
+            <view class="sidebar__profile">
+                <image class="sidebar__profile__img" src="/assets/images/pic.png"/>
+            </view>
+            <view class="sidebar__list">
+                <view class="sidebar__list__li">
+                    <view class="sidebar__list__li__icon iconfont icon-home"></view>
+                    <view class="sidebar__list__li__txt">主页</view>
+                </view>
+                <view class="sidebar__list__li">
+                    <view class="sidebar__list__li__icon iconfont icon-archive"></view>
+                    <view class="sidebar__list__li__txt">归档</view>
+                </view>
+                <view class="sidebar__list__li">
+                    <view class="sidebar__list__li__icon iconfont icon-link"></view>
+                    <view class="sidebar__list__li__txt">链接</view>
+                </view>
+                <view class="sidebar__list__li">
+                    <view class="sidebar__list__li__icon iconfont icon-tags"></view>
+                    <view class="sidebar__list__li__txt">标签</view>
+                </view>
+                <view class="sidebar__list__li">
+                    <view class="sidebar__list__li__icon iconfont icon-user"></view>
+                    <view class="sidebar__list__li__txt">关于</view>
                 </view>
             </view>
         </view>
@@ -29,6 +49,48 @@ export default class Nav extends wepy.component {
 
 <style lang="scss">
 .sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #202020;
+    overflow: auto;
+    z-index: 11;
+    transform: translate3D(-250px,0,0);
+    &__wrap {
 
+    }
+    &__profile {
+        padding: 20px 0;
+        text-align: center;
+        &__img {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+        }
+    }
+    &__list {
+        &__li {
+            height: 45px;
+            line-height: 45px;
+            padding-left: 25px;
+            color: #999;
+            &__icon {
+                display: inline-block;
+                font-size: 20px;
+                width: 25px;
+                text-align: center;
+                margin-right: 15px;
+            }
+            &__txt {
+                display: inline-block;
+                font-size: 16px;
+                vertical-align: middle;
+            }
+        }
+        
+    }
+    
 }
 </style>
