@@ -1,0 +1,34 @@
+<template lang="wxml">
+    <view class="sidebar">
+        <view class="wrap">
+            <view class="profile">
+                <view href="/">
+                    <img src="/public/images/pic.png" alt="Hpysirius的博客">
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class Nav extends wepy.component {
+  name = 'nav';
+  data = {
+    
+  };
+  computed = {
+  };
+  methods = {
+  };
+  onLoad() {
+  };
+}
+</script>
+
+<style lang="scss">
+.sidebar {
+
+}
+</style>

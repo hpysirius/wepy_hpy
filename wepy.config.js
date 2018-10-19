@@ -9,7 +9,6 @@ module.exports = {
   },
   resolve: {
     alias: {
-      counter: path.join(__dirname, 'src/components/counter'),
       '@': path.join(__dirname, 'src')
     },
     aliasFields: ['wepy', 'weapp'],
@@ -36,6 +35,12 @@ module.exports = {
     }
   },
   plugins: {
+    'px2units': {
+      config: {
+        multiple: 2
+      },
+      filter: /\.wxss$/
+    }
   },
   appConfig: {
     noPromiseAPI: ['createSelectorQuery']
