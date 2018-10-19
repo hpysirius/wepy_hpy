@@ -1,7 +1,19 @@
 <template>
-  <view class="container">
+  <view>
     <nav></nav>
     <header></header>
+    <view class="article">
+      <scroll-view>
+        <view class="article__li">
+          <view class="article__li__title">新房装修设计</view>
+          <view class="article__li__entry-content">
+            <view class="article__li__entry-content__p">分类：装修</view>
+            <view class="article__li__entry-content__p">关键字：房屋设计</view>
+            <view class="article__li__entry-content__more a">阅读全文 »</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
   </view>
 </template>
 
@@ -34,3 +46,34 @@
     }
   }
 </script>
+<style lang="scss">
+@import '../style/mixin/border-retina.scss';
+page {
+  color: #666;
+}
+.article {
+  padding: 50px 10px 0 10px;
+  &__li {
+    position: relative;
+    padding: 10px;
+    background-color: #fff;
+    word-wrap: break-word;
+    &:after {
+      @include border-retina(bottom, #ddd);
+    }
+    &__title {
+      color: #333;
+    }
+    &__entry-content {
+      font-size: 14px;
+      line-height: 1.2;
+      &__p {
+        margin: 10px 0;
+      }
+      &__more {
+        font-size: 12px;
+      }
+    }
+  }
+}
+</style>
