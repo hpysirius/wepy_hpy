@@ -17,6 +17,38 @@
               <view class="article__li__entry-content__more a">阅读全文 »</view>
             </view>
           </view>
+          <view class="article__li">
+            <view class="article__li__title">新房装修设计</view>
+            <view class="article__li__entry-content">
+              <view class="article__li__entry-content__p">分类：装修</view>
+              <view class="article__li__entry-content__p">关键字：房屋设计</view>
+              <view class="article__li__entry-content__more a">阅读全文 »</view>
+            </view>
+          </view>
+          <view class="article__li">
+            <view class="article__li__title">新房装修设计</view>
+            <view class="article__li__entry-content">
+              <view class="article__li__entry-content__p">分类：装修</view>
+              <view class="article__li__entry-content__p">关键字：房屋设计</view>
+              <view class="article__li__entry-content__more a">阅读全文 »</view>
+            </view>
+          </view>
+          <view class="article__li">
+            <view class="article__li__title">新房装修设计</view>
+            <view class="article__li__entry-content">
+              <view class="article__li__entry-content__p">分类：装修</view>
+              <view class="article__li__entry-content__p">关键字：房屋设计</view>
+              <view class="article__li__entry-content__more a">阅读全文 »</view>
+            </view>
+          </view>
+          <view class="article__li">
+            <view class="article__li__title">新房装修设计</view>
+            <view class="article__li__entry-content">
+              <view class="article__li__entry-content__p">分类：装修</view>
+              <view class="article__li__entry-content__p">关键字：房屋设计</view>
+              <view class="article__li__entry-content__more a">阅读全文 »</view>
+            </view>
+          </view>
         </scroll-view>
       </view>
     </view>
