@@ -9,43 +9,17 @@
     <view class="main">
       <view class="article">
         <scroll-view>
-          <view class="article__li">
-            <view class="article__li__title">新房装修设计</view>
+          <view 
+            class="article__li"
+            wx:for="{{list}}"
+            wx:for-item="item"
+            wx:for-index="idx"
+            wx:key="idx"
+          >
+            <view class="article__li__title">{{item.title}}</view>
             <view class="article__li__entry-content">
-              <view class="article__li__entry-content__p">分类：装修</view>
-              <view class="article__li__entry-content__p">关键字：房屋设计</view>
-              <view class="article__li__entry-content__more a">阅读全文 »</view>
-            </view>
-          </view>
-          <view class="article__li">
-            <view class="article__li__title">新房装修设计</view>
-            <view class="article__li__entry-content">
-              <view class="article__li__entry-content__p">分类：装修</view>
-              <view class="article__li__entry-content__p">关键字：房屋设计</view>
-              <view class="article__li__entry-content__more a">阅读全文 »</view>
-            </view>
-          </view>
-          <view class="article__li">
-            <view class="article__li__title">新房装修设计</view>
-            <view class="article__li__entry-content">
-              <view class="article__li__entry-content__p">分类：装修</view>
-              <view class="article__li__entry-content__p">关键字：房屋设计</view>
-              <view class="article__li__entry-content__more a">阅读全文 »</view>
-            </view>
-          </view>
-          <view class="article__li">
-            <view class="article__li__title">新房装修设计</view>
-            <view class="article__li__entry-content">
-              <view class="article__li__entry-content__p">分类：装修</view>
-              <view class="article__li__entry-content__p">关键字：房屋设计</view>
-              <view class="article__li__entry-content__more a">阅读全文 »</view>
-            </view>
-          </view>
-          <view class="article__li">
-            <view class="article__li__title">新房装修设计</view>
-            <view class="article__li__entry-content">
-              <view class="article__li__entry-content__p">分类：装修</view>
-              <view class="article__li__entry-content__p">关键字：房屋设计</view>
+              <view class="article__li__entry-content__p">分类：{{item.article_category.name}}</view>
+              <view class="article__li__entry-content__p">关键字：{{ item.keywords }}</view>
               <view class="article__li__entry-content__more a">阅读全文 »</view>
             </view>
           </view>
@@ -59,7 +33,7 @@
   import wepy from 'wepy'
   import Nav from '../components/nav'
   import Header from '../components/header'
-
+  import { getArticle } from '../service'
 
   export default class Index extends wepy.page {
     config = {
@@ -69,13 +43,20 @@
       header: Header
     }
     data = {
-      isShow: false
+      isShow: false,
+      list: []
     }
 
     computed = {
     }
     watch = {
       
+    }
+    getList() {
+      getArticle({pn: 1}).then((data) => {
+        console.log(data);
+        this.list = data.data.list
+      })
     }
     methods = {
       
@@ -88,6 +69,7 @@
     }
 
     onLoad() {
+      this.getList();
     }
   }
 </script>
