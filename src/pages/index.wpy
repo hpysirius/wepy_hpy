@@ -1,8 +1,9 @@
 <template>
   <view class="{{isShow ? 'page' : ''}}">
     <nav
-      :isShow.sync="isShow" />
-    ></nav>
+      :isShow.sync="isShow" 
+    >
+    </nav>
     <header
       :isShow.sync="isShow"
     ></header>
@@ -20,7 +21,10 @@
             <view class="article__li__entry-content">
               <view class="article__li__entry-content__p">分类：{{item.article_category.name}}</view>
               <view class="article__li__entry-content__p">关键字：{{ item.keywords }}</view>
-              <view class="article__li__entry-content__more a">阅读全文 »</view>
+              <view
+                class="article__li__entry-content__more a"
+                bindtap="goDetail({{item.id}})"
+              >阅读全文 »</view>
             </view>
           </view>
         </scroll-view>
@@ -54,12 +58,15 @@
     }
     getList() {
       getArticle({pn: 1}).then((data) => {
-        console.log(data);
         this.list = data.data.list
       })
     }
     methods = {
-      
+      goDetail(id) {
+          wx.navigateTo({
+              url: `/pages/detail?id=${id}`
+          });
+      },
     }
 
     events = {

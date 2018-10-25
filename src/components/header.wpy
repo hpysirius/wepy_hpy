@@ -2,7 +2,7 @@
     <view class="header">
       <view
         class="btn-bar {{isShow ? 'side' : ''}}"
-        @tap="toggleNav();"
+        bindtap="toggleNav();"
       >
         <view class="i"></view>
       </view>

@@ -1,0 +1,92 @@
+<template>
+  <view class="{{isShow ? 'page' : ''}}">
+    <nav
+      :isShow.sync="isShow"
+    >
+    </nav>
+    <header
+      :isShow.sync="isShow"
+    ></header>
+    <view class="main">
+      <scroll-view>
+      <view class="article">
+        <view class="article__title">
+          {{detail.title}}
+        </view>
+        <view>
+          <rich-text nodes="{{detail.content}}" bindtap="tap"></rich-text>
+        </view>
+      </view>
+      </scroll-view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Nav from '../components/nav'
+  import Header from '../components/header'
+  import { getDetail } from '../service'
+
+  export default class Index extends wepy.page {
+    config = {
+    }
+    components = {
+      nav: Nav,
+      header: Header
+    }
+    data = {
+      isShow: false,
+      detail: {}
+    }
+
+    computed = {
+    }
+    watch = {
+      
+    }
+    getDetail(id) {
+      getDetail({ id }).then((data) => {
+        this.detail = data.data
+      })
+    }
+    methods = {
+      
+    }
+
+    events = {
+      toggleNav() {
+        this.isShow = !this.isShow;
+      }
+    }
+
+    onLoad(options) {
+      const { id } = options;
+      this.getDetail(id);
+    }
+  }
+</script>
+<style lang="scss">
+@import '../style/mixin/border-retina.scss';
+page {
+  color: #666;
+}
+.main {
+  width: 100%;
+  min-height: 100%;
+  // padding-top: 50px;
+  // padding-left: 10px;
+  // padding-right: 10px;
+}
+.article {
+  padding: 50px 10px 0 10px;
+    &__title {
+      color:#333;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 35px;
+      margin-bottom: 5px;
+      padding: 5px 0 10px;
+    }
+}
+</style>
